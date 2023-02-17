@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Determinding___Position_of_object.Model
 {
-    internal class ManagePoint
+    internal class PartOfWay
     {
         public Vector2 Point { get; set; }
         public float Speed { get; set; }
@@ -18,7 +18,7 @@ namespace Determinding___Position_of_object.Model
         public TimeSpan Time { get; set; }
         public float Lenght { get; set; } 
 
-        public ManagePoint(Vector2 point, float speed, TimeSpan timeBegin, Vector2? nextPoint)
+        public PartOfWay(Vector2 point, float speed, TimeSpan timeBegin, Vector2? nextPoint)
         {
             Point = point;
             Speed = speed;

@@ -10,7 +10,9 @@ internal class Program
     {
         var engine = new Engine();
         engine.LoadPoints();
-        var times = new double[] { 33, 3, 4, 6 , 25 };
+
+        /* Задаємо значення часу в секундах та розміщуемо в список  */
+        var times = new double[] {0, 33, 3, 4, 6 , 25 };
        
         foreach(var time in times)
         {

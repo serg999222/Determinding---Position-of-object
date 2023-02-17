@@ -13,20 +13,20 @@ namespace Determinding___Position_of_object.Logic
     internal class Engine
     {
        
-        public List<ManagePoint> ManagePoints { get; set; }
+        public List<PartOfWay> PartOfWays { get; set; }
 
         public  Engine()
         {
-            ManagePoints = new List<ManagePoint>();
+            PartOfWays = new List<PartOfWay>();
         }
       
 
         public void LoadPoints()
         {
-            ManagePoints.Clear();
+            PartOfWays.Clear();
             var pointItemsColection = Points.GetItems;
-            ManagePoint point = null;
-            Vector2? nextPoint = null;
+            PartOfWay point = null;
+
             
             for (int i = 0; i < pointItemsColection.Length; i++)
             {
@@ -40,17 +40,17 @@ namespace Determinding___Position_of_object.Logic
                 
                 
 
-                point = new ManagePoint
+                point = new PartOfWay
                     (new Vector2(currentPoint.X, currentPoint.Y),
                     currentPoint.V, (i == 0 ? TimeSpan.Zero : point.TimeEnd),
                     nextCurrentPoint);
-                ManagePoints.Add(point);
+                PartOfWays.Add(point);
             }
         }
 
-        public ManagePoint GetManagePoint(TimeSpan time)
+        public PartOfWay GetManagePoint(TimeSpan time)
         {
-            ManagePoint result = ManagePoints.FirstOrDefault(i => i.TimeBegin <= time && i.TimeEnd > time);
+            PartOfWay result = PartOfWays.FirstOrDefault(i => i.TimeBegin <= time && i.TimeEnd > time);
             return result;
         }
 
@@ -60,7 +60,6 @@ namespace Determinding___Position_of_object.Logic
             var result = point?.GetPoint(time) ?? new Vector2(float.NaN, float.NaN);
             return result;
 
-     
         }
 
 
